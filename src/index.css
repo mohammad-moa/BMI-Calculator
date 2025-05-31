@@ -47,3 +47,11 @@
   font-style: normal;
   font-display: swap;
 }
+
+@theme {
+  --font-vazir: "Vazir";
+}
+
+body {
+  @apply font-vazir;
+}
