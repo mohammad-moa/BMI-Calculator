@@ -1,7 +1,7 @@
-import { FC, Suspense } from "react";
+import { FC, Suspense } from 'react'
 
 const App: FC = () => {
-  return <Suspense fallback={<>Loading ...</>}></Suspense>;
-};
+  return <Suspense fallback={<>Loading ...</>}></Suspense>
+}
 
-export default App;
+export default App
