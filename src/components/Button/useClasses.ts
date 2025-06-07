@@ -7,9 +7,9 @@ export const useClasses = () => {
       {
         variants: {
           variant: {
-            text: 'border-0',
-            outlined: 'border-2',
             contained: '!text-white',
+            outlined: 'border-2',
+            text: 'border-0',
           },
           color: {
             primary: 'text-orange-500 border-orange-500',

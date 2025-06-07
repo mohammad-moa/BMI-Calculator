@@ -6,16 +6,12 @@ import { makeClass } from '@utils/styles'
 // locals
 import { useClasses } from './useClasses'
 
-export type ButtonVariant = 'text' | 'outlined' | 'contained'
-
-export type ButtonColor = ColorType
-
-export type ButtonSize = SizeType
+export type ButtonVariant = 'contained' | 'outlined' | 'text'
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant
-  color?: ButtonColor
-  size?: ButtonSize
+  color?: ColorType
+  size?: SizeType
   rootClassName?: string
   startIcon?: React.ReactNode
   endIcon?: React.ReactNode
