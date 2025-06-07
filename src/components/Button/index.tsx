@@ -1,4 +1,6 @@
 import { memo } from 'react'
+// components
+import { ColorType, SizeType } from '@components/index.type'
 // utils
 import { makeClass } from '@utils/styles'
 // locals
@@ -6,9 +8,9 @@ import { useClasses } from './useClasses'
 
 export type ButtonVariant = 'text' | 'outlined' | 'contained'
 
-export type ButtonColor = 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'error'
+export type ButtonColor = ColorType
 
-export type ButtonSize = 'small' | 'medium' | 'large'
+export type ButtonSize = SizeType
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant
