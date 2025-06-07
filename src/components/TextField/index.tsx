@@ -12,6 +12,8 @@ export type TextFieldProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, '
   label?: React.ReactNode
   isRequired?: boolean
   fullWidth?: boolean
+  isError?: boolean
+  helperText?: string
   variant?: TextFieldVariant
   color?: ColorType
   size?: SizeType
@@ -25,6 +27,8 @@ export const TextField: React.FC<TextFieldProps> = memo(
     label,
     isRequired = false,
     fullWidth = false,
+    isError = false,
+    helperText,
     variant = 'outlined',
     color = 'secondary',
     size = 'medium',
@@ -50,16 +54,25 @@ export const TextField: React.FC<TextFieldProps> = memo(
       return endIcon
     }
 
+    const renderHelperText = () => {
+      if (!helperText) return null
+      return <p className={className.helperText({ isError })}>{helperText}</p>
+    }
+
     return (
       <div>
         {renderLabel()}
         <div
-          className={makeClass(className.root({ variant, color, size, fullWidth }), rootClassName)}
+          className={makeClass(
+            className.root({ fullWidth, isError, variant, color, size }),
+            rootClassName
+          )}
         >
           {renderStartIcon()}
           <input className={makeClass(className.textfield(), props.className)} {...props} />
           {renderEndIcon()}
         </div>
+        {renderHelperText()}
       </div>
     )
   }

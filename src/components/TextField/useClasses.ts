@@ -8,9 +8,13 @@ export const useClasses = () => {
           true: 'w-full',
           false: 'w-1/2',
         },
+        isError: {
+          true: 'text-red-500 !border-red-500',
+          false: '',
+        },
         variant: {
           outlined: 'border-2',
-          filled: 'bg-zinc-300',
+          filled: 'bg-zinc-200',
           standard: 'border-b-2 rounded-none',
         },
         color: {
@@ -27,7 +31,57 @@ export const useClasses = () => {
           large: 'py-3 px-5 text-lg',
         },
       },
+      compoundVariants: [
+        {
+          variant: 'filled',
+          color: 'primary',
+          class: 'bg-orange-200',
+        },
+        {
+          variant: 'filled',
+          color: 'secondary',
+          class: 'bg-zinc-200',
+        },
+        {
+          variant: 'filled',
+          color: 'info',
+          class: 'bg-blue-200',
+        },
+        {
+          variant: 'filled',
+          color: 'success',
+          class: 'bg-green-200',
+        },
+        {
+          variant: 'filled',
+          color: 'warning',
+          class: 'bg-amber-200',
+        },
+        {
+          variant: 'filled',
+          color: 'error',
+          class: 'bg-red-200',
+        },
+        {
+          variant: 'filled',
+          isError: true,
+          class: 'bg-red-200',
+        },
+      ],
+      defaultVariants: {
+        variant: 'outlined',
+        color: 'secondary',
+        size: 'medium',
+      },
     }),
     textfield: cva('w-full'),
+    helperText: cva('text-sm m-1.5', {
+      variants: {
+        isError: {
+          true: 'text-red-400',
+          false: 'text-gray-400',
+        },
+      },
+    }),
   }
 }
