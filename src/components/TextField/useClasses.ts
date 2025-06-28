@@ -74,7 +74,7 @@ export const useClasses = () => {
         size: 'medium',
       },
     }),
-    textfield: cva('w-full'),
+    textfield: cva('w-full resize-none'),
     helperText: cva('text-sm m-1.5', {
       variants: {
         isError: {

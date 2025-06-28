@@ -8,19 +8,21 @@ import { useClasses } from './useClasses'
 
 export type TextFieldVariant = 'outlined' | 'filled' | 'standard'
 
-export type TextFieldProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> & {
-  label?: React.ReactNode
-  isRequired?: boolean
-  fullWidth?: boolean
-  isError?: boolean
-  helperText?: string
-  variant?: TextFieldVariant
-  color?: ColorType
-  size?: SizeType
-  rootClassName?: string
-  startIcon?: React.ReactNode
-  endIcon?: React.ReactNode
-}
+export type TextFieldProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> &
+  React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
+    label?: React.ReactNode
+    isRequired?: boolean
+    fullWidth?: boolean
+    isError?: boolean
+    isMultiline?: boolean
+    helperText?: string
+    variant?: TextFieldVariant
+    color?: ColorType
+    size?: SizeType
+    rootClassName?: string
+    startIcon?: React.ReactNode
+    endIcon?: React.ReactNode
+  }
 
 export const TextField: React.FC<TextFieldProps> = memo(
   ({
@@ -28,6 +30,7 @@ export const TextField: React.FC<TextFieldProps> = memo(
     isRequired = false,
     fullWidth = false,
     isError = false,
+    isMultiline = false,
     helperText,
     variant = 'outlined',
     color = 'secondary',
@@ -35,6 +38,7 @@ export const TextField: React.FC<TextFieldProps> = memo(
     rootClassName,
     startIcon,
     endIcon,
+    rows = 4,
     ...props
   }) => {
     const className = useClasses()
@@ -59,6 +63,19 @@ export const TextField: React.FC<TextFieldProps> = memo(
       return <p className={className.helperText({ isError })}>{helperText}</p>
     }
 
+    const renderTextField = () => {
+      if (!isMultiline) {
+        return <input className={makeClass(className.textfield(), props.className)} {...props} />
+      }
+      return (
+        <textarea
+          rows={rows}
+          className={makeClass(className.textfield(), props.className)}
+          {...props}
+        />
+      )
+    }
+
     return (
       <div>
         {renderLabel()}
@@ -69,7 +86,7 @@ export const TextField: React.FC<TextFieldProps> = memo(
           )}
         >
           {renderStartIcon()}
-          <input className={makeClass(className.textfield(), props.className)} {...props} />
+          {renderTextField()}
           {renderEndIcon()}
         </div>
         {renderHelperText()}
