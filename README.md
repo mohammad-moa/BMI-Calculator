@@ -12,7 +12,7 @@ git clone https://github.com/mohammad-moa/BMI-Calculator.git
 
 cd BMI-Calculator
 
-npm install
+npm install (or pnpm install)
 
-npm run dev
+npm run dev (or pnpm dev)
 ```

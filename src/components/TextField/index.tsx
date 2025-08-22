@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo, useId } from 'react'
 // components
 import { ColorType, SizeType } from '@components/index.type'
 // utils
@@ -14,7 +14,6 @@ export type TextFieldProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, '
     isRequired?: boolean
     fullWidth?: boolean
     isError?: boolean
-    isMultiline?: boolean
     helperText?: string
     variant?: TextFieldVariant
     color?: ColorType
@@ -30,7 +29,6 @@ export const TextField: React.FC<TextFieldProps> = memo(
     isRequired = false,
     fullWidth = false,
     isError = false,
-    isMultiline = false,
     helperText,
     variant = 'outlined',
     color = 'secondary',
@@ -38,9 +36,10 @@ export const TextField: React.FC<TextFieldProps> = memo(
     rootClassName,
     startIcon,
     endIcon,
-    rows = 4,
+    rows = 1,
     ...props
   }) => {
+    const id = useId()
     const className = useClasses()
 
     const renderLabel = () => {
@@ -64,11 +63,14 @@ export const TextField: React.FC<TextFieldProps> = memo(
     }
 
     const renderTextField = () => {
-      if (!isMultiline) {
-        return <input className={makeClass(className.textfield(), props.className)} {...props} />
+      if (rows <= 1) {
+        return (
+          <input id={id} className={makeClass(className.textfield(), props.className)} {...props} />
+        )
       }
       return (
         <textarea
+          id={id}
           rows={rows}
           className={makeClass(className.textfield(), props.className)}
           {...props}
