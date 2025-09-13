@@ -1,6 +1,8 @@
 import { memo, useId } from 'react'
 // components
 import { ColorType, SizeType } from '@components/index.type'
+// icons
+import { ChevronDown, ChevronUp } from '@icons'
 // utils
 import { makeClass } from '@utils/styles'
 // locals
@@ -68,7 +70,9 @@ export const Select: React.FC<SelectProps> = memo(
     }
 
     const renderEndIcon = () => {
-      if (!endIcon) return null
+      if (!endIcon) {
+        return data.isOpen ? <ChevronUp /> : <ChevronDown />
+      }
       return endIcon
     }
 
@@ -89,7 +93,6 @@ export const Select: React.FC<SelectProps> = memo(
               ? options.find((option) => option.value === value.toString())?.label
               : options.find((option) => option.value === data.selectValue.toString())?.label}
           </span>
-          <span>^</span>
         </div>
       )
     }

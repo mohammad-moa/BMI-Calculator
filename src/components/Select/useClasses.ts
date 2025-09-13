@@ -78,7 +78,7 @@ export const useClasses = () => {
         size: 'medium',
       },
     }),
-    dropDown: cva('w-full flex items-center justify-between'),
+    dropDown: cva('w-full flex items-center justify-between cursor-pointer'),
     selected: cva('w-full'),
     menuList: cva('flex flex-col mt-1.5 p-1 gap-0.5 absolute bg-white w-full'),
     menuItem: cva('cursor-pointer p-1.5 rounded-lg hover:bg-gray-100'),
