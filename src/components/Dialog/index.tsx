@@ -53,7 +53,7 @@ export const Dialog: React.FC<DialogProps> = memo(
         return (
           <div className={className.actions()}>
             <Button {...actions.confirm}>{actions.confirm.children}</Button>
-            <Button variant='text' onClick={onClose} {...actions.confirm}>
+            <Button variant='text' onClick={onClose} {...actions.cancel}>
               {actions.cancel.children}
             </Button>
           </div>
