@@ -6,7 +6,7 @@ import { makeClass } from '@utils/styles'
 // locals
 import { useClasses } from './useClasses'
 
-export type CardVariant = 'elevation' | 'outlined'
+export type CardVariant = 'elevation' | 'outlined' | 'standard'
 
 export type CardProps = React.HTMLAttributes<HTMLDivElement> & {
   variant?: CardVariant
@@ -15,13 +15,7 @@ export type CardProps = React.HTMLAttributes<HTMLDivElement> & {
 }
 
 export const Card: React.FC<CardProps> = memo(
-  ({
-    children,
-    variant = 'elevation',
-    color = 'primary',
-    rootClassName,
-    ...props
-  }) => {
+  ({ children, variant = 'elevation', color = 'primary', rootClassName, ...props }) => {
     const className = useClasses()
 
     return (
