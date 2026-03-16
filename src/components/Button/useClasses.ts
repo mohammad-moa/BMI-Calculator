@@ -3,7 +3,7 @@ import { cva } from 'class-variance-authority'
 export const useClasses = () => {
   return {
     button: cva(
-      'flex items-center justify-center gap-2 rounded-xl py-2 px-6 cursor-pointer transition-all duration-200 ease-in-out disabled:opacity-50 disabled:pointer-events-none',
+      'flex items-center justify-center gap-2 rounded-xl cursor-pointer transition-all duration-200 ease-in-out disabled:opacity-50 disabled:pointer-events-none',
       {
         variants: {
           variant: {
@@ -20,9 +20,9 @@ export const useClasses = () => {
             error: 'text-red-500 border-red-500',
           },
           size: {
-            small: 'py-2 px-4.5 text-sm',
-            medium: 'py-2.5 px-7 text-base',
-            large: 'py-3 px-10 text-lg',
+            small: 'py-2 px-6 text-sm',
+            medium: 'py-2.5 px-9 text-base',
+            large: 'py-3 px-11 text-lg',
           },
         },
         compoundVariants: [
