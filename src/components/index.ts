@@ -2,5 +2,6 @@ export * from './index.type'
 
 export * from './Button'
 export * from './Card'
+export * from './Dialog'
 export * from './Select'
 export * from './TextField'
