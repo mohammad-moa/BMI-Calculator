@@ -8,6 +8,7 @@ import { makeClass } from '@utils/styles'
 // locals
 import { useClasses } from './useClasses'
 import { useData } from './useData'
+import { generateUUID } from '@utils/basic'
 
 export type DialogProps = Omit<React.DialogHTMLAttributes<HTMLDialogElement>, 'onClose'> & {
   onClose: () => void
@@ -61,8 +62,8 @@ export const Dialog: React.FC<DialogProps> = memo(
       }
       return (
         <div className={className.actions()}>
-          {actions.map((action, index) => (
-            <Button key={index} {...action} />
+          {actions.map((action) => (
+            <Button key={generateUUID()} {...action} />
           ))}
         </div>
       )
