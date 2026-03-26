@@ -5,10 +5,10 @@ import { Button, ButtonProps } from '@components/Button'
 import { SizeType } from '@components/index.type'
 // utils
 import { makeClass } from '@utils/styles'
+import { generateUUID } from '@utils/basic'
 // locals
 import { useClasses } from './useClasses'
 import { useData } from './useData'
-import { generateUUID } from '@utils/basic'
 
 export type DialogProps = Omit<React.DialogHTMLAttributes<HTMLDialogElement>, 'onClose'> & {
   onClose: () => void
