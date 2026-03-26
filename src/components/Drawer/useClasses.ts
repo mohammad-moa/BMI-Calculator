@@ -2,10 +2,16 @@ import { cva } from 'class-variance-authority'
 
 export const useClasses = () => {
   return {
-    root: cva('flex items-center justify-center w-full h-full absolute top-0 left-0'),
+    root: cva('flex w-full h-full absolute top-0 left-0'),
     backdrop: cva('bg-gray-700/60 w-full h-full absolute top-0 left-0'),
-    dialog: cva('rounded-xl p-4 relative flex flex-col', {
+    dialog: cva('p-4 fixed flex flex-col bg-white transition-transform', {
       variants: {
+        position: {
+          top: 'rounded-b-xl top-0 w-full',
+          right: 'rounded-l-xl right-0 w-1/3 h-full',
+          bottom: 'rounded-t-xl bottom-0 w-full',
+          left: 'rounded-r-xl left-0 w-1/3 h-full',
+        },
         size: {
           small: 'w-1/4',
           medium: 'w-1/3',

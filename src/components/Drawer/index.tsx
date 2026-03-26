@@ -10,17 +10,21 @@ import { generateUUID } from '@utils/basic'
 import { useClasses } from './useClasses'
 import { useData } from './useData'
 
-export type DialogProps = Omit<React.DialogHTMLAttributes<HTMLDialogElement>, 'onClose'> & {
+type DrawerPosition = 'top' | 'right' | 'bottom' | 'left'
+
+export type DrawerProps = React.HTMLAttributes<HTMLDivElement> & {
+  open: boolean
   onClose: () => void
   header: React.ReactNode
   subHeader?: React.ReactNode
   actions?: Record<'confirm' | 'cancel', ButtonProps> | ButtonProps[]
+  position?: DrawerPosition
   size?: SizeType
   disableBackdrop?: boolean
   rootClassName?: string
 }
 
-export const Dialog: React.FC<DialogProps> = memo(
+export const Drawer: React.FC<DrawerProps> = memo(
   ({
     children,
     open = false,
@@ -28,15 +32,15 @@ export const Dialog: React.FC<DialogProps> = memo(
     header,
     subHeader,
     actions,
-    size = 'medium',
+    position = 'bottom',
+    size,
     disableBackdrop = false,
     rootClassName,
-    ...props
   }) => {
     useData({ open, onClose })
     const className = useClasses()
-    const dialogRoot = document.getElementById('modal')
-    if (!dialogRoot || !open) return null
+    const drawerRoot = document.getElementById('modal')
+    if (!drawerRoot || !open) return null
 
     const renderHeader = () => {
       if (!header) return null
@@ -73,26 +77,26 @@ export const Dialog: React.FC<DialogProps> = memo(
       return (
         <div className={className.root()}>
           {!disableBackdrop && <div className={className.backdrop()}></div>}
-          <dialog
-            open={open}
-            onClose={onClose}
-            className={makeClass(
-              className.dialog({
-                size,
-              }),
-              rootClassName
-            )}
-            {...props}
-          >
-            {renderHeader()}
-            {renderSubHeader()}
-            <div className={className.content()}>{children}</div>
-            {renderActions()}
-          </dialog>
+          {open ? (
+            <div
+              className={makeClass(
+                className.dialog({
+                  position,
+                  size,
+                }),
+                rootClassName
+              )}
+            >
+              {renderHeader()}
+              {renderSubHeader()}
+              <div className={className.content()}>{children}</div>
+              {renderActions()}
+            </div>
+          ) : null}
         </div>
       )
     }
 
-    return createPortal(renderContent(), dialogRoot)
+    return createPortal(renderContent(), drawerRoot)
   }
 )
