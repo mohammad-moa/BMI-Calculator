@@ -27,6 +27,7 @@
       "@hooks/*": ["./src/hooks/*"],
       "@layouts": ["./src/layouts/index.ts"],
       "@layouts/*": ["./src/layouts/*"],
+      "@pages": ["./src/pages/index.ts"],
       "@pages/*": ["./src/pages/*"],
       "@assets/*": ["./src/assets/*"],
       "@utils/*": ["./src/utils/*"],
