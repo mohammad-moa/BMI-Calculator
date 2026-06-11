@@ -1,10 +1,10 @@
 // locals
 import { useClasses } from './useClasses'
 
-type FooterProps = {}
+type HomePageProps = {}
 
-export const Footer: React.FC<FooterProps> = () => {
+export const HomePage: React.FC<HomePageProps> = () => {
   const className = useClasses()
 
-  return <></>
+  return <>HomePage</>
 }
