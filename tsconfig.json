@@ -29,6 +29,8 @@
       "@layouts/*": ["./src/layouts/*"],
       "@pages": ["./src/pages/index.ts"],
       "@pages/*": ["./src/pages/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@routers": ["./src/routers/index.tsx"],
       "@assets/*": ["./src/assets/*"],
       "@utils/*": ["./src/utils/*"],
       "@icons": ["./src/icons/index.ts"],
