@@ -6,5 +6,5 @@ type HeaderProps = {}
 export const Header: React.FC<HeaderProps> = () => {
   const className = useClasses()
 
-  return <></>
+  return <>Header</>
 }
