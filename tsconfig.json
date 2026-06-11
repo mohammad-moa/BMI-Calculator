@@ -20,14 +20,15 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "baseUrl": ".",
     "paths": {
-      "@components": ["src/components/index.ts"],
-      "@components/*": ["src/components/*"],
-      "@assets/*": ["src/assets/*"],
-      "@utils/*": ["src/utils/*"],
-      "@icons": ["src/icons/index.ts"],
-      "@icons/*": ["src/icons/*"]
+      "@components": ["./src/components/index.ts"],
+      "@components/*": ["./src/components/*"],
+      "@hooks": ["./src/hooks/index.ts"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@icons": ["./src/icons/index.ts"],
+      "@icons/*": ["./src/icons/*"]
     }
   },
   "include": ["src"],
