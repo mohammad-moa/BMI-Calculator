@@ -6,5 +6,5 @@ type HomePageProps = {}
 export const HomePage: React.FC<HomePageProps> = () => {
   const className = useClasses()
 
-  return <>HomePage</>
+  return <div className={className.root()}>HomePage</div>
 }

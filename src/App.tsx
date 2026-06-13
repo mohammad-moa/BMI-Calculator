@@ -6,9 +6,11 @@ import { Footer, Header } from '@layouts'
 const App: FC = () => {
   return (
     <Suspense fallback={<>Loading ...</>}>
-      <Header />
-      <Outlet />
-      <Footer />
+      <div className='flex flex-col h-screen'>
+        <Header />
+        <Outlet />
+        <Footer />
+      </div>
     </Suspense>
   )
 }

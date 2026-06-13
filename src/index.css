@@ -53,7 +53,7 @@
 }
 
 body {
-  @apply font-vazir bg-blue-50 container mx-auto;
+  @apply font-vazir bg-blue-50 h-screen container mx-auto;
 }
 
 *,
