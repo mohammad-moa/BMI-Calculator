@@ -6,5 +6,5 @@ type FooterProps = {}
 export const Footer: React.FC<FooterProps> = () => {
   const className = useClasses()
 
-  return <>Footer</>
+  return <div className={className.root()}></div>
 }
