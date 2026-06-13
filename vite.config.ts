@@ -14,7 +14,4 @@ export default defineConfig({
       include: '**/*.svg',
     }),
   ],
-  css: {
-    devSourcemap: false,
-  },
 })
