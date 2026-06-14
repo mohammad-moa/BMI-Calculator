@@ -6,7 +6,7 @@ import { Button, TextField } from '@components'
 import { useText } from '@hooks'
 // locals
 import { useClasses } from './useClasses'
-import { useData } from './useData'
+import { Units, useData } from './useData'
 
 type HomePageProps = {}
 
@@ -14,6 +14,19 @@ export const HomePage: React.FC<HomePageProps> = () => {
   const className = useClasses()
   const { TX } = useText()
   const data = useData()
+
+  const renderUnits = (key: keyof Units, unit: Units[keyof Units], text: string) => {
+    return (
+      <span
+        className={className.unit({
+          selected: data.unitSelected[key] === unit,
+        })}
+        onClick={() => data.handleUnitSelected(key, unit)}
+      >
+        {text}
+      </span>
+    )
+  }
 
   const renderForm = () => {
     return (
@@ -26,22 +39,8 @@ export const HomePage: React.FC<HomePageProps> = () => {
           color='primary'
           endIcon={
             <div className={className.units()}>
-              <span
-                className={className.unit({
-                  selected: data.unitSelected.weight === 'kg',
-                })}
-                onClick={() => data.handleUnitSelected('weight', 'kg')}
-              >
-                {TX('HOME.KG')}
-              </span>
-              <span
-                className={className.unit({
-                  selected: data.unitSelected.weight === 'lb',
-                })}
-                onClick={() => data.handleUnitSelected('weight', 'lb')}
-              >
-                {TX('HOME.LB')}
-              </span>
+              {renderUnits('weight', 'kg', TX('HOME.KG'))}
+              {renderUnits('weight', 'lb', TX('HOME.LB'))}
             </div>
           }
         />
@@ -52,22 +51,8 @@ export const HomePage: React.FC<HomePageProps> = () => {
           color='primary'
           endIcon={
             <div className={className.units()}>
-              <span
-                className={className.unit({
-                  selected: data.unitSelected.height === 'cm',
-                })}
-                onClick={() => data.handleUnitSelected('height', 'cm')}
-              >
-                {TX('HOME.CM')}
-              </span>
-              <span
-                className={className.unit({
-                  selected: data.unitSelected.height === 'ft',
-                })}
-                onClick={() => data.handleUnitSelected('height', 'ft')}
-              >
-                {TX('HOME.FT')}
-              </span>
+              {renderUnits('height', 'cm', TX('HOME.CM'))}
+              {renderUnits('height', 'ft', TX('HOME.FT'))}
             </div>
           }
         />
