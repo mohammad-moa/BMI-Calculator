@@ -1,5 +1,12 @@
 {
   "HISTORY": "History",
   "COMING_SOON": "coming soon",
-  "FOOTER.COPYRIGHT": "Made with ❤ by Mohammad Ahrari"
+  "FOOTER.COPYRIGHT": "Made with ❤ by Mohammad Ahrari",
+  "HOME.GENDER": "Gender",
+  "HOME.MALE": "Male",
+  "HOME.FEMALE": "Female",
+  "HOME.AGE": "Age",
+  "HOME.WEIGHT": "Weight",
+  "HOME.HEIGHT": "Height",
+  "HOME.CALCULATE": "Calculate"
 }

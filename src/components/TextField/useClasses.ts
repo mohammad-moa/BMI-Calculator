@@ -2,7 +2,7 @@ import { cva } from 'class-variance-authority'
 
 export const useClasses = () => {
   return {
-    root: cva('flex gap-2.5 text-gray-900 rounded-lg', {
+    root: cva('flex gap-2.5 my-1 text-gray-900 rounded-lg', {
       variants: {
         fullWidth: {
           true: 'w-full',
