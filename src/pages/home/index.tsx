@@ -1,5 +1,7 @@
 // images
 import BmiChart from '@assets/images/bmi-chart.png'
+// icons
+import { Flame } from '@icons'
 // components
 import { Button, TextField } from '@components'
 // hooks
@@ -67,6 +69,9 @@ export const HomePage: React.FC<HomePageProps> = () => {
     <div className={className.root()}>
       <div className={className.formContainer()}>
         <div>
+          <span className={className.badge()}>
+            <Flame /> {TX('HOME.STAY_FIT')}
+          </span>
           <h1 className={className.title()}>{TX('HOME.BMI_CALCULATOR')}</h1>
           <p className={className.text()}>{TX('HOME.BMI_CALCULATOR_MESSAGE')}</p>
         </div>
